@@ -42,10 +42,7 @@ public class Day11 extends Day {
                 ".##.##.");
     }
 
-
-
-    @Override
-    public void part1(List<String> inputs, List<Object> params) {
+    private List<List<Character>> parseState(List<String> inputs){
         List<List<Character>> state = new ArrayList<>();
         for(String in : inputs){
             List<Character> line = new ArrayList<>();
@@ -54,6 +51,12 @@ public class Day11 extends Day {
             }
             state.add(line);
         }
+        return state;
+    }
+
+    @Override
+    public void part1(List<String> inputs, List<Object> params) {
+        List<List<Character>> state = parseState(inputs);
         Logger.debug(printState(state));
         while(true){
             SeatRound sr = makeRound(state,1, 4);
@@ -87,6 +90,9 @@ public class Day11 extends Day {
         return new SeatRound(copy, seatsChanged);
     }
 
+
+
+    @SuppressWarnings("DuplicatedCode")
     private int getNumberOfAdjacentSeats(int part, List<List<Character>> state, int x, int y){
         int adj = 0;
         if(part == 1) {
@@ -224,14 +230,7 @@ public class Day11 extends Day {
 
     @Override
     public void part2(List<String> inputs, List<Object> params) {
-        List<List<Character>> state = new ArrayList<>();
-        for(String in : inputs){
-            List<Character> line = new ArrayList<>();
-            for(char c : in.toCharArray()){
-                line.add(c);
-            }
-            state.add(line);
-        }
+        List<List<Character>> state = parseState(inputs);
 
         while(true){
             SeatRound sr = makeRound(state,2, 5);

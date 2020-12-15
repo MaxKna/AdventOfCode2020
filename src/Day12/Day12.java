@@ -97,7 +97,7 @@ public class Day12 extends Day {
             }
         }
 
-        private Waypoint waypoint = new Waypoint();
+        private final Waypoint waypoint = new Waypoint();
 
         public void executeMove2(Action action){
             switch (action.type){
@@ -182,6 +182,7 @@ public class Day12 extends Day {
         int x = 10;
         int y = 1;
 
+        @SuppressWarnings("SuspiciousNameCombination")
         public void rotate(boolean left, int amount){
             for(int i = 0; i< amount; i++) {
                 int preX = x;

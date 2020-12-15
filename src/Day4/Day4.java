@@ -69,39 +69,43 @@ public class Day4 extends Day {
                 pass = new Passport();
                 numberOfPorts++;
             }
-            String[] comps = line.split(" +");
-            for(String comp : comps){
-                String[] parts = comp.split(":");
-                switch (parts[0]){
-                    case "ecl":
-                        pass.ecl = parts[1];
-                        break;
-                    case "pid":
-                        pass.pid = parts[1];
-                        break;
-                    case "eyr":
-                        pass.eyr = parts[1];
-                        break;
-                    case "hcl":
-                        pass.hcl = parts[1];
-                        break;
-                    case "byr":
-                        pass.byr = parts[1];
-                        break;
-                    case "iyr":
-                        pass.iyr = parts[1];
-                        break;
-                    case "cid":
-                        pass.cid = parts[1];
-                        break;
-                    case "hgt":
-                        pass.hgt = parts[1];
-                        break;
-                }
-            }
+            processPass(pass,line);
         }
         Logger.debug("Number of Ports checked: "+numberOfPortsChecked);
         Logger.result("Number of Ports:" + numberOfPorts + ", valid:" + validPorts);
+    }
+
+    private void processPass(Passport pass, String line){
+        String[] comps = line.split(" +");
+        for(String comp : comps){
+            String[] parts = comp.split(":");
+            switch (parts[0]){
+                case "ecl":
+                    pass.ecl = parts[1];
+                    break;
+                case "pid":
+                    pass.pid = parts[1];
+                    break;
+                case "eyr":
+                    pass.eyr = parts[1];
+                    break;
+                case "hcl":
+                    pass.hcl = parts[1];
+                    break;
+                case "byr":
+                    pass.byr = parts[1];
+                    break;
+                case "iyr":
+                    pass.iyr = parts[1];
+                    break;
+                case "cid":
+                    pass.cid = parts[1];
+                    break;
+                case "hgt":
+                    pass.hgt = parts[1];
+                    break;
+            }
+        }
     }
 
     @Override
@@ -124,36 +128,7 @@ public class Day4 extends Day {
                 pass = new Passport();
                 numberOfPorts++;
             }
-            String[] comps = line.split(" +");
-            for(String comp : comps){
-                String[] parts = comp.split(":");
-                switch (parts[0]){
-                    case "ecl":
-                        pass.ecl = parts[1];
-                        break;
-                    case "pid":
-                        pass.pid = parts[1];
-                        break;
-                    case "eyr":
-                        pass.eyr = parts[1];
-                        break;
-                    case "hcl":
-                        pass.hcl = parts[1];
-                        break;
-                    case "byr":
-                        pass.byr = parts[1];
-                        break;
-                    case "iyr":
-                        pass.iyr = parts[1];
-                        break;
-                    case "cid":
-                        pass.cid = parts[1];
-                        break;
-                    case "hgt":
-                        pass.hgt = parts[1];
-                        break;
-                }
-            }
+            processPass(pass,line);
         }
         Logger.debug("Number of Ports checked: "+numberOfPortsChecked);
         Logger.result("Number of Ports:"+numberOfPorts+", valid:" +validPorts);

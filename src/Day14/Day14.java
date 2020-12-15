@@ -31,10 +31,8 @@ public class Day14 extends Day {
                 mask = line.split("=")[1].trim();
             } else {
                 long value = Long.parseLong(line.split("=")[1].trim());
-                String numPart = line.split("=")[0].split("\\[")[1];
-                long address = Long.parseLong(numPart.substring(0, numPart.length() - 2));
-                String binary = Long.toBinaryString(value);
-                binary = ("000000000000000000000000000000000000" + binary).substring(binary.length());
+                long address = getAddress(line);
+                String binary =getBinary(value);
                 Logger.debug("Value: " + value + " address: " + address);
                 Logger.debug(mask);
                 Logger.debug(binary);
@@ -47,6 +45,17 @@ public class Day14 extends Day {
         Logger.result(m.getMemorySum());
 
 
+    }
+
+    private long getAddress(String line){
+        String numPart = line.split("=")[0].split("\\[")[1];
+        return Long.parseLong(numPart.substring(0, numPart.length() - 2));
+    }
+
+    private String getBinary(long decimal){
+        String binary = Long.toBinaryString(decimal);
+        binary = ("000000000000000000000000000000000000" + binary).substring(binary.length());
+        return binary;
     }
 
     private String applyConversion(String mask, String bits) {
@@ -103,10 +112,8 @@ public class Day14 extends Day {
                 mask = line.split("=")[1].trim();
             } else {
                 long value = Long.parseLong(line.split("=")[1].trim());
-                String numPart = line.split("=")[0].split("\\[")[1];
-                long address = Long.parseLong(numPart.substring(0, numPart.length() - 2));
-                String binary = Long.toBinaryString(address);
-                binary = ("000000000000000000000000000000000000" + binary).substring(binary.length());
+                long address = getAddress(line);
+                String binary =getBinary(address);
                 Logger.debug("Value: " + value + " address: " + address);
                 Logger.debug("Binary:    " + binary);
                 Logger.debug("Mask:      " + mask);

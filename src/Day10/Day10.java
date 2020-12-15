@@ -124,7 +124,7 @@ public class Day10 extends Day {
                     .sum();
 
             if (possibleConnections.isEmpty()) {
-                permutations = 1l;
+                permutations = 1L;
             }
 
             return permutations;

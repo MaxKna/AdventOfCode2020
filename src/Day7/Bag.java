@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Bag {
 
-    private static Map<String, Bag> allBags = new HashMap<>();
+    private static final Map<String, Bag> allBags = new HashMap<>();
 
     public static Bag getBag(String name){
         Bag b = allBags.get(name);
@@ -19,9 +19,9 @@ public class Bag {
         this.name = name;
     }
 
-    private List<Bag> possibleParents = new ArrayList<>();
-    private Map<Bag,Integer> children = new HashMap<>();
-    private String name;
+    private final List<Bag> possibleParents = new ArrayList<>();
+    private final Map<Bag,Integer> children = new HashMap<>();
+    private final String name;
 
     public void addChildren(String name, int amount){
         Bag child = getBag(name);

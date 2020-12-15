@@ -1,6 +1,5 @@
 package Day4;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -69,17 +68,13 @@ public class Passport {
                     return false;
                 }
                 int amount = Integer.parseInt(hgt.substring(0, 3));
-                if (amount < 150 || amount > 193) {
-                    return false;
-                }
+                return amount >= 150 && amount <= 193;
             } else if (unit.equals("in")) {
                 if (hgt.length() != 4) {
                     return false;
                 }
                 int amount = Integer.parseInt(hgt.substring(0, 2));
-                if (amount < 59 || amount > 76) {
-                    return false;
-                }
+                return amount >= 59 && amount <= 76;
             }
 
 

@@ -1,7 +1,5 @@
 package Day8;
 
-import javafx.util.Pair;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -89,7 +87,7 @@ public class Handheld {
             }
             List<Instruction> duplicate = new ArrayList<>();
             for(Instruction inst : instructions){
-                duplicate.add((Instruction) inst.clone());
+                duplicate.add(new Instruction(inst));
             }
             switch (duplicate.get(i).command){
                 case "nop":
@@ -118,8 +116,9 @@ class Instruction{
         return command + " " + param;
     }
 
-    @Override
-    protected Object clone() {
-        return new Instruction(command,param);
+
+    protected Instruction(Instruction other) {
+        this.command = other.command;
+        this.param = other.param;
     }
 }

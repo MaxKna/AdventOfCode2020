@@ -26,6 +26,7 @@ public class Day3 extends Day {
         Logger.result(mult);
     }
 
+    @SuppressWarnings("InfiniteLoopStatement")
     private static int checkTrees(List<String> inputs, int xStep, int yStep){
         int width = inputs.get(0).length();
 

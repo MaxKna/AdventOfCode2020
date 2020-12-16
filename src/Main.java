@@ -14,6 +14,6 @@ public class Main {
             }
         }
         Logger.setDebug(true);
-        Day.run(Day.TestMode.TEST_ONLY, Day.RunMode.ALL);
+        Day.run(Day.TestMode.TASK_ONLY, Day.RunMode.LATEST);
     }
 }
